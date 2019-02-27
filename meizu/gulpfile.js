@@ -83,6 +83,14 @@ gulp.task("index-sass", function(){
 	.pipe(connect.reload());
 })
 
+gulp.task("other-scss" , function(){
+	return gulp.src(["stylesheet/*.scss", "!stylesheet/index.scss"])
+	.pipe(sass())
+	.pipe(gulp.dest("dist/css"))
+	.pipe(connect.reload());
+
+})
+
 
 
 /*
@@ -90,7 +98,7 @@ gulp.task("index-sass", function(){
 	先要将上述所有的任务都运行一遍
 	build 一次性执行多个任务
 */
-gulp.task("build", ["html-index","htmls","acss", "iconfont", "images", "scripts-index", "scripts", "data", "index-sass", "scripts-index"], function(){
+gulp.task("build", ["html-index","htmls","acss", "iconfont", "images", "scripts-index", "scripts", "data", "index-sass", "scripts-index","other-scss"], function(){
 	console.log("任务执行完成，项目已建立");
 })
 /*
@@ -107,6 +115,7 @@ gulp.task("watch", function(){
 	gulp.watch(["*.json", "!package.json", "!package-lock.json"], ['data']);
 	gulp.watch("stylesheet/index.scss", ["index-sass"]);
 	gulp.watch("index.js", ['scripts-index']);
+	gulp.watch(["stylesheet/*.scss", "!stylesheet/index.scss"], ['other-scss']);
 })
 
 var connect = require("gulp-connect");

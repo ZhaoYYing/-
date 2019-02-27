@@ -12,7 +12,7 @@ define(["jquery"], function($){
 
 								$(`
 										<li>
-											<a href="">
+											<a href="html/phone-product.html">
 												
 												
 												<p>
@@ -39,7 +39,7 @@ define(["jquery"], function($){
 								if(j < 4){
 									$(`
 											<li>
-												<a href="">
+												<a href="html/phone-product.html">
 													<img src="${larr[j].img}" alt="" class="img2">
 													<p>
 														<span>${larr[j].type}</span>
@@ -57,7 +57,7 @@ define(["jquery"], function($){
 								}else{
 									$(`
 											<li>
-												<a href="">
+												<a href="html/phone-product.html">
 													<img src="${larr[j].img}" alt="" class="img2">
 													<p>
 														<span>${larr[j].type}</span>

@@ -6,7 +6,7 @@
 	height:80px;
 	background: rgba(255,255,255,0);
 	position: relative;
-	z-index: 5;
+	z-index: 99;
 	
 
 	
@@ -86,7 +86,7 @@
     padding: 0s;
     cursor: pointer;
     position: relative;
-    z-index: 99;
+    z-index: 4;
 }
 #header .bottom ul li a img{
 	display: block;

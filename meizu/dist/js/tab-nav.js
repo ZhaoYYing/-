@@ -7,7 +7,7 @@ define(["jquery"], function($){
 					//li
 					for(var i = 0; i < arr.length; i++){
 						
-							$(`<li id="${i}"><a href="">${arr[i].title}</a></li>`).appendTo($("#header #nav"));
+							$(`<li id="${i}"><a href="html/phone-particular.html">${arr[i].title}</a></li>`).appendTo($("#header #nav"));
 						
 					}
 
@@ -16,14 +16,14 @@ define(["jquery"], function($){
 					for(var i = 0; i < arr.length; i++){
 						$(`<div id="kuang${i}"> </div>`).appendTo($("#header .bottom"));
 						var i = i;
-						$(`<ul> </ul>`).appendTo($("#kuang" + i));
+						$(`<ul class="uuu1"> </ul>`).appendTo($("#kuang" + i));
 						var larr = arr[i].product;
 
 						for(var j = 0; j < larr.length; j++){
 
 								$(`
 										<li>
-											<a href="">
+											<a href="html/phone-product.html">
 												<img src="${larr[j].img}" alt="">
 												<span>${larr[j].type}</span>
 												<span>${larr[j].price}</span>
@@ -68,12 +68,32 @@ define(["jquery"], function($){
 
 			$("#nav").on("mouseout", "li", function(ev){
 				
-				$("#header").find("#div1").find("ul").find("li").find("a").css("color","#fff");
-				$("#header").find("#mz").css("color","#fff");
-				$("#header").css("background", "rgba(255,255,255,0)");
-				$("#bottom").css("display", "none");
-				$(".sousuo").find("input").css("border","none");
-				$(".tub").css("color", "#eee");
+				
+				
+			
+				
+
+				$("#bottom").on("mouseover", ".uuu1", function(ev){
+					$("#header").css("background", "rgba(255,255,255,1)");
+					//$("#header").find("#div1").find("ul").find($(this).index()).find("a").css("color","#28a0cd");
+				
+					$("#header").find("#div1").find("ul").find("li").find("a").css("color","#333");
+					$("#header").find("#mz").css("color","#28a0cd");
+					$("#bottom").css("display", "block");
+					$(".sousuo").find("input").css("border","1px solid #333");
+					$(".tub").css("color", "#666");
+
+				
+				})
+				$("#bottom").on("mouseout", ".uuu1", function(ev){
+					$("#bottom").css("display", "none");
+					$("#header").find("#div1").find("ul").find("li").find("a").css("color","#fff");
+					$("#header").find("#mz").css("color","#fff");
+					$("#header").css("background", "rgba(255,255,255,0)");
+					$(".sousuo").find("input").css("border","none");
+					$(".tub").css("color", "#eee");
+				
+				})
 
 				
 			})
