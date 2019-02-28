@@ -1,6 +1,9 @@
-define(["jquery"], function($){
+define(["jquery","jquery-cookie"], function($){
 	function tabSwitch(){
 		$(function(){
+			
+			sc_car();
+
 			$.ajax({
 				url: "../data/data-nav.json",
 				success: function(arr){
@@ -42,6 +45,22 @@ define(["jquery"], function($){
 				}
 
 			})
+
+			function sc_car(){
+				var cookieStr = $.cookie("goods");
+				if(cookieStr){
+				var arr = eval(cookieStr);
+				var sum = 0; //求和数
+				for(var i = 0; i < arr.length; i++){
+					sum += arr[i].num;
+				}
+				$(".shopping_cart").find(".g_sum").html(sum)
+				}else{
+					$(".shopping_cart").find(".g_sum").html(0)
+				}
+
+			}
+
 
 
 

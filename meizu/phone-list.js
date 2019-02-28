@@ -1,6 +1,7 @@
-define(["jquery"], function($){
+define(["jquery","jquery-cookie"], function($){
 	function PhoneList(){
 		$(function(){
+			sc_car();
 			$.ajax({
 				url: "../data/phone-list.json",
 				success:function(arr){
@@ -9,11 +10,12 @@ define(["jquery"], function($){
 							$(`<ul class="clear"> </ul>`).appendTo($("#Ph_b"));
 							var larr = arr[i].product;
 							for(var j = 0; j < larr.length; j++){
+
 								var nohave = larr[j].active
 								if(nohave){
 									$(`
 											<li>
-												<a href="../html/phone-product.html">
+												<a href="../html/phone-product.html?id=${larr[j].id}">
 													
 													
 													<p>
@@ -33,7 +35,7 @@ define(["jquery"], function($){
 
 									$(`
 											<li>
-												<a href="">
+												<a href="../html/phone-product.html?id=${larr[j].id}">
 													
 													
 													<p>
@@ -58,6 +60,23 @@ define(["jquery"], function($){
 				}
 
 			})
+
+			function sc_car(){
+				var cookieStr = $.cookie("goods");
+				if(cookieStr){
+				var arr = eval(cookieStr);
+				var sum = 0; //求和数
+				for(var i = 0; i < arr.length; i++){
+					sum += arr[i].num;
+				}
+				$(".shopping_cart").find(".g_sum").html(sum)
+				}else{
+					$(".shopping_cart").find(".g_sum").html(0)
+				}
+
+			}
+
+
 			
 
 			

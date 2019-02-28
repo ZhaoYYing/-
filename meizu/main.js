@@ -5,7 +5,7 @@ console.log("加载完毕");
 require.config({
 	paths:{
 		"jquery": "jquery-1.11.3",
-		/*"jquery-cookie": "jquery.cookie",*/
+		"jquery-cookie": "jquery.cookie",
 		"slide": "slide",
 		"tab": "tab-nav",
 		"tab1": "tab-phone"
