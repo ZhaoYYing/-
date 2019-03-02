@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/register.css">
+	<link rel="stylesheet" href="../iconfont/iconfont.css">
+	<script src="../js/ajax.js"></script>
+	<script>
+		function phoneNumber(){
+			var ousername = document.getElementById('username');
+			var ousername_span = document.getElementById('username_span');
+			//表单验证
+			var oValue = ousername.value;
+			oValue = oValue.replace(/ /g,"");
+			ousername.value = oValue;
+			//数字长度
+			if(oValue.length != 11){
+				ousername_span.innerHTML = "请输入11位手机号码";
+				ousername_span.style.color = "red";
+			}else if(oValue[0] != 1){
+				ousername_span.innerHTML = "请填写正确的手机号";
+				ousername_span.style.color = "red";
+			}else if(/\D/.test(oValue)){
+				ousername_span.innerHTML = "请填写正确的手机号";
+				/*var isYes = true;
+				for( var i = 0; i < oValue.length; i++){
+					if(!isBCD(oValue[i])){
+						isYes = false;
+						break;
+					}
+				}
+				if(isYes){
+					ousername_span.innerHTML = "√";
+					ousername_span.style.color = "";
+				}
+				else{
+					ousername_span.innerHTML = "请填写正确的手机号";
+					ousername_span.style.color = "red";
+
+				}*/
+			}else{
+				ousername_span.innerHTML = "√";
+				ousername_span.style.color = "";
+			}
+		}
+
+
+
+		// 密码验证
+		function password(){
+			var opassword = document.getElementById('password');
+			var opassword_span = document.getElementById('password_span');
+			
+			
+
+			//密码长度
+			if(opassword.value.length > 16 || opassword.value.length < 6){
+				opassword_span.innerHTML = "密码长度应为6~16个字符";
+				opassword_span.style.color = "red";
+			}else{
+				opassword_span.innerHTML = "√";
+				opassword_span.style.color = "";
+			}
+
+		}
+
+
+		
+
+		window.onload = function(){
+			var btn = document.getElementById("zhuce");
+			var oUsername = document.getElementById("username");
+			var oPassword = document.getElementById("password");
+
+			btn.onclick = function(){
+				var opassword_span = document.getElementById('password_span');
+				var ousername_span = document.getElementById('username_span');
+
+				//总的定义判断是否全部符合
+				if(opassword_span.innerHTML == "√"  && ousername_span.innerHTML == "√"){
+					console.log("格式正确");
+
+				}else{
+					console.log("请注意填写格式");
+				}
+
+				var str = `${oUsername.name}=${oUsername.value}&${oPassword.name}=${oPassword.value}`;
+
+				ajax({
+					method: 'post',
+					url:"../php/register.php",
+					data: str,
+					success: function(data){
+						alert(data);
+						if(data.trim() == "注册成功"){
+							window.location.href = 'login.html';
+						}
+					},
+					error: function(msg){
+						console.log(msg);
+					}
+
+				})	
+			}
+
+			
+		}
+
+
+	</script>
+</head>
+<body>
+	<!-- header -->
+	<div class="headerBox">
+		<div class="header">
+			<a href="index.html"><i class="iconfont">&#xe611;</i></a>
+		</div>
+	</div>
+
+
+
+	<!-- box -->
+	<div class="banner-box">
+		<div class="bg-box">
+			<div action="" class="main-form">
+				<div class="tab-title">
+					<a href="">注册 Flyme 账号</a>
+				</div>
+				<div class="username">
+					<input type="text" placeholder="手机号/Flyme账号" id="username" onblur="phoneNumber()" name="username">
+					<a href="" id="username_span">请填写用户名!</a>
+				</div>
+				<div class="password">
+					<input type="password" placeholder="密码" id="password" onblur="password()" name="password">
+					<a href="" id="password_span">请填写密码!</a>
+				</div>
+				<div class="fuwu">
+					<span>点击立即注册，即表示您同意并愿意遵守</span>
+					<a href="">Flyme服务协议</a>
+					<span>和</span>
+					<a href="">法律声明</a>
+				</div>
+				<button class="login" id="zhuce">立即注册</button>
+				<div class="last">
+					
+					<a href="login.html">登录</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+</body>
+</html>

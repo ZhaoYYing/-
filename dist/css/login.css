@@ -1,0 +1,126 @@
+html, body {
+  height: 100%; }
+
+/* html{
+	font-size:26.67vw;
+} */
+* {
+  box-sizing: border-box; }
+
+/*header*/
+.headerBox {
+  width: 100%;
+  height: 68px; }
+  .headerBox .header {
+    width: 1240px;
+    margin: 0 auto;
+    line-height: 68px; }
+    .headerBox .header .iconfont {
+      font-size: 18px;
+      color: #23A0E5; }
+
+.banner-box {
+  position: relative;
+  min-height: 750px;
+  max-height: 1080px; }
+  .banner-box::before {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../images/login.png) no-repeat center;
+    background-color: #EDF9FB; }
+  .banner-box .bg-box {
+    position: relative;
+    width: 1240px;
+    height: 750px;
+    margin: 0 auto; }
+    .banner-box .bg-box .main-form {
+      position: absolute;
+      top: 17%;
+      right: 85px;
+      background-color: #FFF;
+      padding: 35px 35px 10px;
+      border-radius: 2px; }
+      .banner-box .bg-box .main-form .tab-title {
+        font-size: 18px;
+        /* margin-bottom: 60px; */
+        margin-top: 35px;
+        width: 300px;
+        text-align: center;
+        margin-bottom: 33px; }
+        .banner-box .bg-box .main-form .tab-title a {
+          color: #7f7f7f; }
+          .banner-box .bg-box .main-form .tab-title a:first-of-type {
+            color: #000; }
+        .banner-box .bg-box .main-form .tab-title span {
+          color: #B3ABAB;
+          display: inline-block;
+          border: 2px solid #B3ABAB;
+          border-left: 1px;
+          height: 15px;
+          line-height: 20px;
+          margin-right: 32px;
+          margin-left: 32px; }
+      .banner-box .bg-box .main-form .username {
+        margin-bottom: 20px; }
+        .banner-box .bg-box .main-form .username input {
+          vertical-align: middle;
+          font-size: 14px;
+          margin-bottom: 0 !important;
+          font-size: 14px;
+          width: 300px;
+          height: 46px;
+          line-height: 50px;
+          /*position: absolute;*/
+          color: #000000;
+          font-size: 14px; }
+        .banner-box .bg-box .main-form .username a {
+          display: block;
+          color: #7f7f7f;
+          font-size: 12px;
+          margin-top: 5px; }
+      .banner-box .bg-box .main-form .password {
+        margin-bottom: 20px; }
+        .banner-box .bg-box .main-form .password input {
+          width: 300px;
+          height: 46px;
+          display: inline-block;
+          /* height: 50px; */
+          line-height: 22px;
+          font-size: 14px;
+          outline: none;
+          color: #474747;
+          height: 46px; }
+        .banner-box .bg-box .main-form .password a {
+          display: block;
+          color: #7f7f7f;
+          font-size: 12px;
+          margin-top: 5px; }
+      .banner-box .bg-box .main-form .login {
+        margin-top: 54px;
+        display: block;
+        background-color: #387aff;
+        width: 300px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 46px;
+        text-align: center;
+        margin-bottom: 10px;
+        *margin-bottom: 10px;
+        outline: none;
+        cursor: pointer;
+        background-color: #32a5e7;
+        color: #fff;
+        border-radius: 4px; }
+      .banner-box .bg-box .main-form .last {
+        margin-bottom: 5px; }
+        .banner-box .bg-box .main-form .last a {
+          font-size: 14px;
+          color: #32A5E7; }
+          .banner-box .bg-box .main-form .last a:hover {
+            color: #387aff; }
+          .banner-box .bg-box .main-form .last a:first-child {
+            float: right; }

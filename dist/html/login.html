@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../iconfont/iconfont.css">
+	<script src="../js/ajax.js"></script>
+	<script>
+		window.onload = function(){
+			var btn = document.getElementById("login");
+			var oUsername = document.getElementById("username");
+			var oPassword = document.getElementById("password");
+			
+			btn.onclick = function(event){
+			
+
+				var str = `${oUsername.name}=${oUsername.value}&${oPassword.name}=${oPassword.value}`;
+
+				ajax({
+					method: 'post',
+					url:"../php/login.php",
+					data: str,
+					success: function(data){
+						
+						 alert(data);
+
+						if(data.trim()=="登录成功"){
+							
+							window.location.href= 'index.html';
+
+						}
+					},
+					error: function(msg){
+						alert(msg);
+					}
+
+				})	
+				
+			}
+
+			
+		}
+
+	</script>
+</head>
+<body>
+	<!-- header -->
+	<div class="headerBox">
+		<div class="header">
+			<a href="index.html"><i class="iconfont">&#xe611;</i></a>
+		</div>
+	</div>
+
+
+
+	<!-- box -->
+	<div class="banner-box">
+		<div class="bg-box">
+			<div class="main-form">
+				<div class="tab-title">
+					<a href="">账号登录</a>
+					<span></span>
+					<a href="">二维码登录</a>
+				</div>
+				<div class="username">
+					<input type="text" placeholder="手机号/Flyme账号" name= 'username' id="username">
+					<a href="">请填写用户名!</a>
+				</div>
+				<div class="password">
+					<input type="password" placeholder="密码" name="password" id="password">
+					<a href="">请填写密码!</a>
+				</div>
+				<button class="login" id="login">登录</button>
+				<div class="last">
+					<a href="">忘记密码？</a>
+					<a href="register.html">注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
